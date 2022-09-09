@@ -41,7 +41,7 @@ def run_itkp(pilih):
         urlFolder = "KTP/"
 
     # Dataset
-    tglTarik = "2022630"
+    tglTarik = "2022"
     urlDataset = "https://storage.googleapis.com/lpse_ramadhan/" + urlFolder
 
     ## Data RUP Paket Penyedia
@@ -63,12 +63,12 @@ def run_itkp(pilih):
     df_pp_ekatalog = df_pp_umumkan[df_pp_umumkan['metodepengadaan'].isin(['e-Purchasing'])]
 
     ## Data RUP Paket Swakelola
-    df_sw = pd.read_feather(urlDataset + "sirupdsw" + tglTarik + ".ftr")
+    df_sw = pd.read_feather(urlDataset + "sirupdsw" + tglTarik[0:4] + ".ftr")
     df_sw_umumkan = df_sw[df_sw['statusumumkan'] == 'Terumumkan']
     df_sw_inisiasi = df_sw[df_sw['statusumumkan'] == 'Terinisiasi']
 
     ## Data Struktur Anggaran RUP
-    df_rsap = pd.read_feather(urlDataset + "sirupdsa_rsap" + tglTarik + ".ftr")
+    df_rsap = pd.read_feather(urlDataset + "sirupdsa_rsap" + tglTarik[0:4] + ".ftr")
 
     ## Data Tender
     df_dts = pd.read_feather(urlDataset + "dtender_dts" + tglTarik[0:4] + ".ftr")
